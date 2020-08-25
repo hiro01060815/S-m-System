@@ -26,3 +26,11 @@ class CoursesTaken(models.Model):
     def __str__(self):
         return self.name
 
+class UserCTInfo(models.Model):
+    SELECTION = ((2,'未履修'),(1,'履修中'))
+    user = models.ForeignKey(User,verbose_name='ユーザ',related_name='user',on_delete=models.CASCADE)
+    CT = models.ForeignKey(CoursesTaken,verbose_name='科目',related_name='use_CT_info',on_delete=models.CASCADE)
+    user_CT = models.IntegerField('履修状態',choices=SELECTION)
+    
+    def __str__(self):
+        return self.user.username
