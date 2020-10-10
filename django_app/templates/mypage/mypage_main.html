@@ -1,0 +1,829 @@
+{% extends 'base.html' %}
+{%block content %}
+
+<h1 class="h1-title">マイページ</h1>
+
+
+
+<div class="table-all">
+
+
+
+    <table class="table-jikanwari" border="1" style="border-collapse: collapse">
+        <caption>時間割 <div class="jikannwari-henkou"><a href="{% url 'mysite:new_CT' %}" >時間割変更はこちら！</a></div></caption>
+        <tr>
+            <th >　　</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
+        </tr>
+        <tbody>
+            
+            <tr>
+                <th width="80" rowspan="2"  >１限</td>
+                
+                <td class="jikanwari-list">
+                        {% for CT_data1 in CT_data%}                    
+                            {% if CT_data1.CT.period == 1 and CT_data1.CT.CT_status == 2 %}
+                                <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                            {% endif %} 
+                        {% endfor %}   
+                </td>
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 1 and CT_data1.CT.CT_status == 3 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+                </td>  
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 1 and CT_data1.CT.CT_status == 4 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+                </td>              
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 1 and CT_data1.CT.CT_status == 5 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+                </td> 
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 1 and CT_data1.CT.CT_status == 6 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+                </td>                                                                                                                   
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 1 and CT_data1.CT.CT_status == 7 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+                </td>    
+            </tr>
+            <tr>
+                <td class="under">
+                    {% for monday_data in monday_datas%}                    
+                        {% if monday_data.CT.period == 1 %}
+                            {% if monday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ monday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %}    
+                </td>
+                <td class="under">
+                    {% for tuesday_data in tuesday_datas%}                    
+                        {% if tuesday_data.CT.period == 1 %}
+                            {% if tuesday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ tuesday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}    
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for wednesday_data in wednesday_datas%}                    
+                        {% if wednesday_data.CT.period == 1 %}
+                            {% if wednesday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ wednesday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for thursday_data in thursday_datas%}                    
+                        {% if thursday_data.CT.period == 1 %}
+                            {% if thursday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ thursday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for friday_data in friday_datas%}                    
+                        {% if friday_data.CT.period == 1 %}
+                            {% if friday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ friday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for saturday_data in saturday_datas%}                    
+                        {% if saturday_data.CT.period == 1 %}
+                            {% if saturday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ saturday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+            </tr>
+            <tr>
+                <th width="80" rowspan="2" >２限</th>
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 2 and CT_data1.CT.CT_status == 2 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+                </td>
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 2 and CT_data1.CT.CT_status == 3 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+                </td>  
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 2 and CT_data1.CT.CT_status == 4 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+                </td>              
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 2 and CT_data1.CT.CT_status == 5 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+                </td> 
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 2 and CT_data1.CT.CT_status == 6 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+                </td>                                                                                                                   
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 2 and CT_data1.CT.CT_status == 7 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+                </td>           
+            </tr>  
+            <tr>
+                <td class="under">
+                    {% for monday_data in monday_datas%}                    
+                        {% if monday_data.CT.period == 2 %}
+                            {% if monday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ monday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %}    
+                </td>
+                <td class="under">
+                    {% for tuesday_data in tuesday_datas%}                    
+                        {% if tuesday_data.CT.period == 2 %}
+                            {% if tuesday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ tuesday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}    
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for wednesday_data in wednesday_datas%}                    
+                        {% if wednesday_data.CT.period == 2 %}
+                            {% if wednesday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ wednesday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for thursday_data in thursday_datas%}                    
+                        {% if thursday_data.CT.period == 2 %}
+                            {% if thursday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ thursday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for friday_data in friday_datas%}                    
+                        {% if friday_data.CT.period == 2 %}
+                            {% if friday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ friday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for saturday_data in saturday_datas%}                    
+                        {% if saturday_data.CT.period == 2 %}
+                            {% if saturday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ saturday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+            </tr>
+
+            <tr>
+                <th width="80" rowspan="2" >３限</th>
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 3 and CT_data1.CT.CT_status == 2 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+                </td>
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 3 and CT_data1.CT.CT_status == 3 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+                </td>  
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 3 and CT_data1.CT.CT_status == 4 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+                </td>              
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 3 and CT_data1.CT.CT_status == 5 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+                </td> 
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 3 and CT_data1.CT.CT_status == 6 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+                </td>                                                                                                                   
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 3 and CT_data1.CT.CT_status == 7 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+                </td>                 
+            </tr>  
+            <tr>
+                <td class="under">
+                    {% for monday_data in monday_datas%}                    
+                        {% if monday_data.CT.period == 3 %}
+                            {% if monday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ monday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %}    
+                </td>
+                <td class="under">
+                    {% for tuesday_data in tuesday_datas%}                    
+                        {% if tuesday_data.CT.period == 3 %}
+                            {% if tuesday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ tuesday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}    
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for wednesday_data in wednesday_datas%}                    
+                        {% if wednesday_data.CT.period == 3 %}
+                            {% if wednesday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ wednesday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for thursday_data in thursday_datas%}                    
+                        {% if thursday_data.CT.period == 3 %}
+                            {% if thursday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ thursday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for friday_data in friday_datas%}                    
+                        {% if friday_data.CT.period == 3 %}
+                            {% if friday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ friday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for saturday_data in saturday_datas%}                    
+                        {% if saturday_data.CT.period == 3 %}
+                            {% if saturday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ saturday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+            </tr>
+
+            <tr>
+                <th width="80" rowspan="2" >４限</th>
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 4 and CT_data1.CT.CT_status == 2 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+            </td>
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 4 and CT_data1.CT.CT_status == 3 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td>  
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 4 and CT_data1.CT.CT_status == 4 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td>              
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 4 and CT_data1.CT.CT_status == 5 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td> 
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 4 and CT_data1.CT.CT_status == 6 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td>                                                                                                                   
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 4 and CT_data1.CT.CT_status == 7 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td>                 
+        
+            </tr>  
+            <tr>
+                <td class="under">
+                    {% for monday_data in monday_datas%}                    
+                        {% if monday_data.CT.period == 4 %}
+                            {% if monday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ monday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %}    
+                </td>
+                <td class="under">
+                    {% for tuesday_data in tuesday_datas%}                    
+                        {% if tuesday_data.CT.period == 4 %}
+                            {% if tuesday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ tuesday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}    
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for wednesday_data in wednesday_datas%}                    
+                        {% if wednesday_data.CT.period == 4 %}
+                            {% if wednesday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ wednesday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for thursday_data in thursday_datas%}                    
+                        {% if thursday_data.CT.period == 4 %}
+                            {% if thursday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ thursday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for friday_data in friday_datas%}                    
+                        {% if friday_data.CT.period == 4 %}
+                            {% if friday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ friday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for saturday_data in saturday_datas%}                    
+                        {% if saturday_data.CT.period == 4 %}
+                            {% if saturday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ saturday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+            </tr>
+
+            <tr>
+                <th width="80" rowspan="2" >５限</th>
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 5 and CT_data1.CT.CT_status == 2 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+            </td>
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 5 and CT_data1.CT.CT_status == 3 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td>  
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 5 and CT_data1.CT.CT_status == 4 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td>              
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 5 and CT_data1.CT.CT_status == 5 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td> 
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 5 and CT_data1.CT.CT_status == 6 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td>                                                                                                                   
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 5 and CT_data1.CT.CT_status == 7 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td>                 
+        
+            </tr> 
+            <tr>
+                <td class="under">
+                    {% for monday_data in monday_datas%}                    
+                        {% if monday_data.CT.period == 5 %}
+                            {% if monday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ monday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %}    
+                </td>
+                <td class="under">
+                    {% for tuesday_data in tuesday_datas%}                    
+                        {% if tuesday_data.CT.period == 5 %}
+                            {% if tuesday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ tuesday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}    
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for wednesday_data in wednesday_datas%}                    
+                        {% if wednesday_data.CT.period == 5 %}
+                            {% if wednesday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ wednesday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for thursday_data in thursday_datas%}                    
+                        {% if thursday_data.CT.period == 5 %}
+                            {% if thursday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ thursday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for friday_data in friday_datas%}                    
+                        {% if friday_data.CT.period == 5 %}
+                            {% if friday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ friday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for saturday_data in saturday_datas%}                    
+                        {% if saturday_data.CT.period == 5 %}
+                            {% if saturday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ saturday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+            </tr>
+
+            <tr>
+                <th width="80" rowspan="2" >６限</th>
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 6 and CT_data1.CT.CT_status == 2 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+            </td>
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 6 and CT_data1.CT.CT_status == 3 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td>  
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 6 and CT_data1.CT.CT_status == 4 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td>              
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 6 and CT_data1.CT.CT_status == 5 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td> 
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 6 and CT_data1.CT.CT_status == 6 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td>                                                                                                                   
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 6 and CT_data1.CT.CT_status == 7 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td>                 
+            
+            </tr>   
+            <tr>
+                <td class="under">
+                    {% for monday_data in monday_datas%}                    
+                        {% if monday_data.CT.period == 6 %}
+                            {% if monday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ monday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %}    
+                </td>
+                <td class="under">
+                    {% for tuesday_data in tuesday_datas%}                    
+                        {% if tuesday_data.CT.period == 6 %}
+                            {% if tuesday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ tuesday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}    
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for wednesday_data in wednesday_datas%}                    
+                        {% if wednesday_data.CT.period == 6 %}
+                            {% if wednesday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ wednesday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for thursday_data in thursday_datas%}                    
+                        {% if thursday_data.CT.period == 6 %}
+                            {% if thursday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ thursday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for friday_data in friday_datas%}                    
+                        {% if friday_data.CT.period == 6 %}
+                            {% if friday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ friday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for saturday_data in saturday_datas%}                    
+                        {% if saturday_data.CT.period == 6 %}
+                            {% if saturday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ saturday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+            </tr>
+
+            <tr>
+                <th width="80" rowspan="2" >７限</th>
+                <td class="jikanwari-list">
+                    {% for CT_data1 in CT_data%}                    
+                        {% if CT_data1.CT.period == 7 and CT_data1.CT.CT_status == 2 %}
+                            <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                        {% endif %} 
+                    {% endfor %}   
+            </td>
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 7 and CT_data1.CT.CT_status == 3 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td>  
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 7 and CT_data1.CT.CT_status == 4 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td>              
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 7 and CT_data1.CT.CT_status == 5 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td> 
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 7 and CT_data1.CT.CT_status == 6 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td>                                                                                                                   
+            <td class="jikanwari-list">
+                {% for CT_data1 in CT_data%}                    
+                    {% if CT_data1.CT.period == 7 and CT_data1.CT.CT_status == 7 %}
+                        <a href="{% url 'mysite:CT_info' CT_data1.pk %}">{{CT_data1.CT.name}}</a>
+                    {% endif %} 
+                {% endfor %}   
+            </td>                 
+        
+            </tr>   
+            <tr>
+                <td class="under">
+                    {% for monday_data in monday_datas%}                    
+                        {% if monday_data.CT.period == 7 %}
+                            {% if monday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ monday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %}    
+                </td>
+                <td class="under">
+                    {% for tuesday_data in tuesday_datas%}                    
+                        {% if tuesday_data.CT.period == 7 %}
+                            {% if tuesday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ tuesday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}    
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for wednesday_data in wednesday_datas%}                    
+                        {% if wednesday_data.CT.period == 7 %}
+                            {% if wednesday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ wednesday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for thursday_data in thursday_datas%}                    
+                        {% if thursday_data.CT.period == 7 %}
+                            {% if thursday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ thursday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for friday_data in friday_datas%}                    
+                        {% if friday_data.CT.period == 7 %}
+                            {% if friday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ friday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+                <td class="under">
+                    {% for saturday_data in saturday_datas%}                    
+                        {% if saturday_data.CT.period == 7 %}
+                            {% if saturday_data.CT.URLURL == "#" %}
+                                <p> </p>
+                            {% else %}
+                                <a href="{{ saturday_data.CT.URLURL }}" target="_blank">授業リンク</a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %} 
+                </td>
+            </tr>
+
+        </tbody>
+
+
+
+    </table>
+</div>
+
+
+{%endblock%}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{%block content %}
+
+<h1 class="h1-title">登録情報訂正</h1>
+
+<table class="form">
+    <form action="{% url 'mysite:CT_update' CT_id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+        {{ form1.as_table }}
+        <tr><td></td><td><button type="submit" >送信</button></td></tr>
+    </form>
+</table>
+
+{%endblock%}

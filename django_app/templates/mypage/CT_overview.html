@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{%block content %}
+<h1 class="h1-title">{{CT_name}}</h1>
+<table class="CT_info-table" border="1" style="border-collapse: collapse" >
+    <tr><td>科目名</td><td>{{CT_name}}</td></tr>
+    <tr><td>曜日</td><td>
+        {% if CT_youbi == 2 %}
+            月曜日
+        {% elif CT_youbi == 3 %}
+            火曜日
+        {% elif CT_youbi == 4 %}
+            水曜日
+        {% elif CT_youbi == 5 %}
+            木曜日
+        {% elif CT_youbi == 6 %}
+            金曜日
+        {% elif CT_youbi == 7 %}
+            土曜日
+        {% endif %}
+
+    </td></tr>
+    <tr><td>時限</td><td>{{CT_jigen}}</td></tr>
+    <tr><td>授業用URL</td><td><font size="1">{{CT_data.CT.URLURL}}</font></td></tr>
+    <tr><td>単位数</td><td>{{CT_credit}}</td></tr>
+    <tr><td>履修状態</td><td>
+        {% if CT_rishuujoutai == 0 %}
+            非履修
+            {%else%}
+            履修中
+        {% endif %}
+    </td></tr>
+    <tr>
+        <td class="noborder"><a href="{% url 'mysite:CT_update' CT_id %}" class="CT-info-bttton1">訂正</a></td>
+        <td class="noborder"><a href="#" class="CT-info-bttton2">削除</a></td>
+    </tr>
+</table>
+
+
+
+{%endblock%}

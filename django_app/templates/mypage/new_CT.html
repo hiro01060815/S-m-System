@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{%block content %}
+
+<h1 class="h1-title">科目登録</h1>
+<div class="new-CT-table">
+    <form  method="POST" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">登録</button>
+    </form>
+
+    <p>{{ message }}</p>
+</div>
+{%endblock%}

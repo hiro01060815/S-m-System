@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{%block content %}
+<h1 class="h1-title">{{CT_name}}</h1>
+<div id="parent">
+    <div class="CT_kadai-main">
+
+
+
+        <div id="child2">
+            <h2 class="form-name">課題登録</h2>
+            <form  method="POST" novalidate>
+                {% csrf_token %}
+                {{ KIform.as_p }}
+                <button type="submit" name="kadai_button">送信</button>
+            </form>
+            <p>{{ message }}</p>
+
+            <table class="CT_kadai-table">
+                <caption>未提出課題</caption>
+                <tr>
+                    <th>提出期限</th><th>科目名</th><th>課題名</th>
+                </tr>
+                <tbody>
+                    {% for kadai_data in kadai_data1 %}
+                    <tr>
+                        <td>
+                            {{kadai_data.KI.date.year}}年{{kadai_data.KI.date.month}}月{{kadai_data.KI.date.day}}日{{kadai_data.KI.date.hour}}時{{kadai_data.KI.date.minute}}分
+                        </td>
+                        <td>
+                            <a href="{% url 'mysite:CT_info' kadai_data.KI.CT.pk %}">{{kadai_data.KI.CT.name}}</a>
+                        </td>                                
+                        <td>
+                            <a href="{% url 'mysite:kadai' kadai_data.pk %}">{{kadai_data.KI.name}}</a>
+                        </td>
+                    </tr>
+                    {% endfor %}            
+                </tbody>
+            </table>
+            
+            <table class="CT_kadai-table">
+                <caption>提出済課題</caption>
+                <tr>
+                    <th>提出期限</th><th>科目名</th><th>課題名</th>
+                </tr>
+                <tbody>
+                    {% for kadai_data in kadai_data2 %}
+                    <tr>
+                        <td>
+                            {{kadai_data.KI.date.year}}年{{kadai_data.KI.date.month}}月{{kadai_data.KI.date.day}}日{{kadai_data.KI.date.hour}}時{{kadai_data.KI.date.minute}}分
+                        </td>
+                        <td>
+                            <a href="{% url 'mysite:CT_info' kadai_data.KI.CT.pk %}">{{kadai_data.KI.CT.name}}</a>
+                        </td>                                
+                        <td>
+                            <a href="{% url 'mysite:kadai' kadai_data.pk %}">{{kadai_data.KI.name}}</a>
+                        </td>
+                    </tr>
+                    {% endfor %}            
+                </tbody>
+            </table> 
+        </div>
+    </div>
+    <div id="child1">
+        <div class="aside-right">
+            <h2>Sub Menu</h2>
+            <ul>
+                <li><a href="{% url 'mysite:CT_overview' pk %}">科目詳細</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
