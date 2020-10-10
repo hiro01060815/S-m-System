@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{%block content %}
+
+
+<div class="k-t-p-main">
+    <h2 class="form-name">課題登録</h2>
+    <form  method="POST" novalidate>
+        {% csrf_token %}
+        {{ KIform.as_p }}
+        <button type="submit" name="kadai_button">送信</button>
+    </form>
+    <p>{{ message }}</p>
+
+    <table class="k-t-p">
+        <caption class="k-t-p">未提出課題一覧</caption>
+        <tr>
+            <th>提出期限</th><th>科目名</th><th>課題名</th>
+        </tr>
+        <tbody>
+                
+                {% for kadai_data in kadai_datas %}
+                <tr>
+                    {% if kadai_data.KI.date.year == now_year and kadai_data.KI.date.month == now_month and kadai_data.KI.date.day <= now_day %}
+
+                        <div class="main-table-if">
+                            <td><font color=Red>
+                                {{kadai_data.KI.date.year}}年{{kadai_data.KI.date.month}}月{{kadai_data.KI.date.day}}日{{kadai_data.KI.date.hour}}時{{kadai_data.KI.date.minute}}分
+                            </font></td>
+                            <td><font color=Red>
+                                <a href="{% url 'mysite:CT_info' kadai_data.KI.CT.pk %}">{{kadai_data.KI.CT.name}}</a>
+                            </font></td>                                
+                            <td>
+                                <a href="{% url 'mysite:kadai' kadai_data.pk %}"><font color=Red>{{kadai_data.KI.name}}</font></a>
+                            </td>
+                        </div>
+                        
+                    {% else %}
+                        <td>
+                            {{kadai_data.KI.date.year}}年{{kadai_data.KI.date.month}}月{{kadai_data.KI.date.day}}日{{kadai_data.KI.date.hour}}時{{kadai_data.KI.date.minute}}分
+                        </td>
+                        <td>
+                            <a href="{% url 'mysite:CT_info' kadai_data.KI.CT.pk %}">{{kadai_data.KI.CT.name}}</a>
+                        </td>                                
+                        <td>
+                            <a href="{% url 'mysite:kadai' kadai_data.pk %}">{{kadai_data.KI.name}}</a>
+                        </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            
+        </tbody>
+    </table>
+</div>
+<div class="k-t-p-main">
+    <h2 class="form-name">テスト登録</h2>
+    <form  method="POST" novalidate>
+        {% csrf_token %}
+        {{ TIform.as_p }}
+        <button type="submit" name="test_button">送信</button>
+    </form>
+    <p>{{ message }}</p>
+
+    <table class="k-t-p">
+        <caption class="k-t-p">未受験テスト一覧</caption>
+        <tr>
+            <th>テスト日</th><th>科目名</th><th>テスト名</th>
+        </tr>
+        <tbody>
+                
+                {% for test_data in test_datas %}
+                <tr>
+                    <td>
+                        {{test_data.TI.date.year}}年{{test_data.TI.date.month}}月{{test_data.TI.date.day}}日{{test_data.TI.date.hour}}時{{test_data.TI.date.minute}}分
+                    </td>
+                    <td>
+                        {{test_data.TI.CT.name}}
+                    </td>
+                    <td>
+                        {{test_data.TI.name}}
+                    </td>
+                </tr>
+                {% endfor %}
+            
+        </tbody>
+    </table>
+</div>
+{%endblock%}

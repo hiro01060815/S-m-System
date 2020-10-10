@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{%block content %}
+
+<h1 class="h1-title">課題詳細</h1>
+<div class="table-all">
+    {% if moji %}
+    <p ><font color=Red>{{moji}}</font></p>
+    {% endif %}
+    <table class="table-kadai" >
+        <caption>{{obj1.KI.name}}の詳細</caption>
+        <tr>
+            <th>科目名</th>
+            <td><a href="{% url 'mysite:CT_info' CT_id %}">{{obj1.KI.CT.name}}</a></td>
+        </tr>
+        <tr>
+            <th>課題名</th>
+            <td>{{obj1.KI.name}}</td>
+        </tr>
+        <tr>
+            <th>提出日</th>
+            <td>{{obj1.KI.date.year}}年{{obj1.KI.date.month}}月{{obj1.KI.date.day}}日{{obj1.KI.date.hour}}時{{obj1.KI.date.minute}}分</td>
+        </tr>
+        <tr>
+            <th>概要</th>
+            <td>{{obj1.KI.overview}}</td>
+        </tr>
+        <tr>
+            <th>獲得点数</th>
+            <td>{{obj1.point}}</td>
+        </tr>
+        <tr>
+            <th>提出状況</th>
+            <td>
+                {% if obj1.status == 0 %}
+                    未提出
+                {% else %}
+                    提出済み
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="noborder" >
+                <span style="float: right;"><a href="{% url 'mysite:kadai_delete' kadai_id %}" class="CT-info-bttton2">削除</a></span>
+                <span style="float: right;"><a href="{% url 'mysite:kadai_update' kadai_id %}" class="CT-info-bttton1">更新</a></span>
+            </td>
+            
+        </tr>
+
+        
+    </table>
+</div>
+{%endblock%}
