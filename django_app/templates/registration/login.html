@@ -6,7 +6,7 @@
 <h1 class="h1-title">ログイン</h1>
 <section class="common-form">
     {% if form.errors %}
-    <p class="error-msg">Your username and password didn't match. Please try again.</p>
+    <p class="error-msg">入力内容が一致しません。もう一度入力してください。</p>
     {% endif %}
 
     {% if next %}
@@ -14,7 +14,7 @@
     <p class="error-msg">Your account doesn't have access to this page. To proceed,
         please login with an account that has access.</p>
     {% else %}
-    <p class="error-msg">Please login to see this page.</p>
+    <p class="error-msg">このサイトを利用するにはログインをして下さい。</p>
     {% endif %}
     {% endif %}
 

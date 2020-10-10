@@ -2,25 +2,33 @@
 {%block content %}
 
 <h1 class="h1-title">ホームページ</h1>
-<table>
-    <caption>1週間以内に提出した課題</caption>
-    <tr>
-        <th>提出した日</th><th>科目名</th><th>課題名</th>
-    </tr>
-    <tbody>
-        {% for submit_kadai_data in submit_kadai_datas %}
-            <tr>
-                <td>
-                    {{submit_kadai_data.KI.submit_date.year}}年{{submit_kadai_data.KI.submit_date.month}}月{{submit_kadai_data.KI.submit_date.day}}日
-                </td>
-                <td>
-                    <a href="{% url 'mysite:CT_info' submit_kadai_data.KI.CT.pk %}">{{submit_kadai_data.KI.CT.name}}</a>
-                </td>
-                <td>
-                    <a href="{% url 'mysite:kadai' submit_kadai_data.pk %}">{{submit_kadai_data.KI.name}}</a>
-                </td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+    <div id="parent">
+        <div id="child1">
+            <table>
+                <caption class="font">1週間以内に提出した課題</caption>
+                <tr>
+                    <th>提出した日</th><th>科目名</th><th>課題名</th>
+                </tr>
+                <tbody>
+                    {% for submit_kadai_data in submit_kadai_datas %}
+                        <tr>
+                            <td>
+                                {{submit_kadai_data.KI.submit_date.year}}年{{submit_kadai_data.KI.submit_date.month}}月{{submit_kadai_data.KI.submit_date.day}}日
+                            </td>
+                            <td>
+                                <a href="{% url 'mysite:CT_info' submit_kadai_data.KI.CT.pk %}">{{submit_kadai_data.KI.CT.name}}</a>
+                            </td>
+                            <td>
+                                <a href="{% url 'mysite:kadai' submit_kadai_data.pk %}">{{submit_kadai_data.KI.name}}</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div id="child2">
+            <h3 class="font">今期履修した単位数　{{credit_sum}}</h3>
+
+        </div>
+    </div>
 {%endblock%}

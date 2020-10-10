@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404,redirect
 from django.core.mail import BadHeaderError, send_mail
 from mysite.models import CoursesTaken, UserCTInfo, KadaiInfo, UserKadaiInfo, UserInfo
 import datetime
-import schedule
 import time
 from mysite.forms import UIForm
 import sched, time, datetime
@@ -25,7 +24,7 @@ def mail(request):
     subject = "期限が間近の課題、テストがあります。"
     """本文"""
     print(message)
-    message = "期限が3日以内の課題があります。確認してください。\n" + message +"\n\n\nhttp://127.0.0.1:8000/"
+    message = "aaaaaaaaaaaa期限が3日以内の課題があります。確認してください。\n" + message +"\n\n\nhttp://127.0.0.1:8000/"
     """送信元メールアドレス"""
     from_email = "s.m.system.info@gmail.com"
     """宛先メールアドレス"""
