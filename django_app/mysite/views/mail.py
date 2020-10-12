@@ -18,13 +18,13 @@ def mail(request):
     for kadai_data in kadai_datas:
         kadai_date = kadai_data.KI.date.date()
         if (kadai_date <= d_plus3 and kadai_date >= d_now):
-            message += str(kadai_data.KI.name) + "( " + "http://127.0.0.1:8000/kadai/" + str(kadai_data.id) + " )\n"
+            message += str(kadai_data.KI.name) + "( " + "http://SelfManagementSystem.pythonanywhere.com/kadai/" + str(kadai_data.id) + " )\n"
 
     """題名"""
     subject = "期限が間近の課題、テストがあります。"
     """本文"""
     print(message)
-    message = "aaaaaaaaaaaa期限が3日以内の課題があります。確認してください。\n" + message +"\n\n\nhttp://127.0.0.1:8000/"
+    message = "aaaaaaaaaaaa期限が3日以内の課題があります。確認してください。\n" + message +"\n\n\nhttp://SelfManagementSystem.pythonanywhere.com/"
     """送信元メールアドレス"""
     from_email = "s.m.system.info@gmail.com"
     """宛先メールアドレス"""
@@ -61,7 +61,7 @@ def check_send_mail(mail,user): #仮登録メール
     subject = "メールの本登録をお願いします。"
     """本文"""
     message = user+"さん下記urlからメールの本登録をお願いします。\nこのメールに身に覚えのない場合はアクセスしないでください。\n\
-        本登録url( http://127.0.0.1:8000/mail_check )"
+        本登録url( http://SelfManagementSystem.pythonanywhere.com/mail_check )"
     """送信元メールアドレス"""
     from_email = "s.m.system.info@gmail.com"
     """宛先メールアドレス"""

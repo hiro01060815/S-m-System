@@ -22,6 +22,7 @@ class UserInfo(models.Model):
     mailaddress = models.EmailField('メールアドレス',max_length=255, default="address here")
     address_status = models.IntegerField('登録有無',choices=SELECTION, default=0)
     status = models.IntegerField('メール送信状態',default=0)
+    mail_date = models.DateTimeField('メール送信日',default="2020-01-01 12:00")
     def __str__(self):
         return self.user.username
 
