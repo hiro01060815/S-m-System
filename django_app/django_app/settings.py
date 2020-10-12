@@ -25,7 +25,7 @@ SECRET_KEY = 'hx#e#k)2bb5x)zg!em6gt%ul8w&#%nq7c^$ii30!zqzma*9k6p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'pythonanywhere.com']
 
 
 # Application definition
@@ -120,7 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] 
+#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] 
 
 LOGIN_REDIRECT_URL = '/'
 
@@ -130,4 +130,4 @@ EMAIL_HOST_USER = 's.m.system.info@gmail.com'
 EMAIL_HOST_PASSWORD = 'hiroyui0815'
 EMAIL_USE_TLS = True
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'statics')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
