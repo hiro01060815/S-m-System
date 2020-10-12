@@ -1,0 +1,316 @@
+/*------------------------------------all-*/
+body{
+    color: black;
+    font-size: 16py;
+    font-family: "Avenir Next";
+    margin: 0;
+    padding: 0;
+}
+p{
+    margin: 10px;
+}
+a{
+    color: black;
+}
+.table-all{
+    margin-left: auto;
+    margin-right: auto;
+}
+caption{
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.h1-title{
+    color: black;
+    font-size: 40pt;
+    padding-top:15px;
+    margin-left:0px;
+}
+
+.aside-right{
+    box-sizing: border-box;
+    top: 273px;
+    height: 100px;
+    width: 220px;
+    position: absolute;
+    background: #DDFFFF;
+    margin-left: auto;
+}
+.aside-right li{
+    list-style: none;
+    font-weight: 700;
+    margin-left: auto;
+    margin-right: auto;
+}
+.aside-right h2{
+    text-align: center;
+}
+
+#child1 {
+    flex-grow: 1;
+    
+}
+#child2 {
+    flex-grow: 1;
+}
+#parent {
+    display: flex;
+}
+
+/*--------------------------------------------base.html-*/
+.header-list li a{
+    color:white;
+    font-size: 20px;
+}
+.header-list li{
+    list-style:none;
+    float: right;
+    padding: 33px 20px;
+    color: #fff;
+}
+header{
+    background-color: #26d0c9;
+    color: #fff;
+    height: 70px;
+}
+
+.header-logo{
+    float: left;
+    font-size: 36px;
+    padding: 20px 40px;
+    color: #fff;
+    margin-top: -10px;
+    margin-left:50px;
+}
+.header-logo a{
+    color: #fff;
+}
+li.login-name{
+    color: white;
+    margin-top: 2px;
+}
+.copyright{
+    text-align:center;
+}
+
+.main{
+    box-sizing: border-box;
+    margin-left: 220px;
+    margin-right: 220px;
+    padding: 20px 40px;
+}
+.aside{
+    box-sizing: border-box;
+    top: 200px;
+    height: 100px;
+    width: 220px;
+    position: fixed;
+    background: #DDFFFF;
+    
+}
+.aside li{
+    list-style: none;
+    font-weight: 700;
+    margin-left: auto;
+    margin-right: auto;
+}
+.aside h2{
+    text-align: center;
+}
+/*----------------------------------------mypage_main.html-*/
+
+.table-jikanwari{
+    width: 900px;
+    height: 100px;
+    table-layout: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffeaff;
+    border-style: dotted;
+    border-width: 3px;
+}
+.table-jikanwari th{
+    border-style: dotted;
+    border-width: 3px;
+}
+.table-jikanwari td{
+    border-style: dotted;
+    border-width: 3px;
+}
+
+.jikanwari-list a{
+    color: black;
+    font-size:20px;
+} 
+td.jikanwari-list{
+    height: 150px;
+    text-align: center;
+    vertical-align: center;
+    font-weight: bold;
+}
+
+.jikannwari-henkou{
+    text-align: right;
+    font-weight: bold;
+    font-size: 20px;
+}
+.jikannwari-henkou a{
+    color: red;
+}
+.under{
+    border-bottom-style: dotted;
+    background-color: #ffeaaa;
+    text-align:center;
+    font-weight: bold;
+}
+.table-jikanwari th{
+    background-color:#EEEEEE;
+}
+
+/*-------------------------------------------CT_info.html-*/
+.CT-info-bttton1 {
+    width:50px;
+    font-size:20px;
+    font-weight:bold;
+    text-decoration:none;
+    display:block;
+    text-align:center;
+    padding:2px 0 2px;
+    color:#fff;
+    background-color:#49a9d4;
+}
+.CT-info-bttton2 {
+    width:50px;
+    font-size:20px;
+    font-weight:bold;
+    text-decoration:none;
+    display:block;
+    text-align:center;
+    padding:2px 0 2px;
+    color:#fff;
+    background-color:red;
+}
+.CT_info-table{
+    width: 500px;
+    height: 100px;
+    table-layout: fixed;
+    margin-left: auto;
+    margin-right: auto;
+}
+.noboder{
+    border: 0px none;
+    text-align:right;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*------------------------------------------mew_CT.html-*/
+.new-CT-table{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: beige;
+    padding: 30px 30px 30px 30px;
+    width:500px;
+}
+
+/*------------------------------------------CT_update.html-*/
+table.update-table{
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: beige;
+}
+
+
+/*-----------------------------------------------login.html-*/
+.common-form{
+    text-align:center;
+}
+
+/*------------------------------------------------logged_out.html-*/
+p.logged_out-p{
+    text-align:center;
+}
+
+/*------------------------------------------------k-t-p_main.html-*/
+.k-t-p-main{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffeaff;
+    padding: 0px 30px 30px 30px;
+    width: 800px;
+}
+.form-name{
+    font-size: 35pt;
+}
+table.k-t-p{
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: separate;
+    border-spacing: 32px 0;
+    font-size: 17px;
+}
+caption.k-t-p{
+    padding: 30px 0px 0px 0px;
+    font-size: 20px;
+    font-weight: 900;
+}
+.main-table-if td a{
+    color: red;
+}
+
+/*-----------------------------------------------kadai.html*/
+.table-kadai{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: beige;
+    width: 600px;
+    text-align: left;
+    font-size: 25px;
+}
+.table-kadai caption{
+    background-color: beige;   
+}
+.table-kadai td:last-child{width: 300px;}
+
+.table-kadai.noborder{
+    text-align: left;
+}
+
+/*----------------------------------------------------kadai_delete.html*/
+.delete-p{
+    text-align: center;
+    color: red;
+    font-weight: 900;
+    font-size: 25px;
+}
+
+/*-------------------------------------------------------CT_kadai.html-*/
+.CT_kadai-main{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffeaff;
+    padding: 0px 30px 30px 30px;
+    width: 800px;
+    display: flex;
+}
+.CT_kadai-table{
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: separate;
+    border-spacing: 32px 0;
+}
+.CT_kadai-table caption{
+    padding: 30px 0px 0px 0px;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+/*------------------------------------------------------------index.html--*/
+.font{
+    font-size: 25pt;
+}
