@@ -130,4 +130,4 @@ EMAIL_HOST_USER = 's.m.system.info@gmail.com'
 EMAIL_HOST_PASSWORD = 'hiroyui0815'
 EMAIL_USE_TLS = True
 
-STATIC_ROOT = "/home/SelfManagementSystem/selfmanagementsystem.pythonanywhere.com/static/css/style.css"
+STATIC_ROOT = "/home/SelfManagementSystem/selfmanagementsystem.pythonanywhere.com/static/css/"
