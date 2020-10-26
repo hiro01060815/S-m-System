@@ -56,7 +56,7 @@ class KadaiInfo(models.Model):
     SELECTION = ((0,'使用'), (1,'使用しない'))
     CT = models.ForeignKey(CoursesTaken,verbose_name='科目',related_name='kadai_info',on_delete=models.CASCADE)
     name = models.CharField('課題名',max_length=255)
-    date = models.DateTimeField('提出期日', default="2020-10-08 12:00")
+    date = models.DateTimeField('提出期日', default=str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M')))
     overview = models.CharField('概要', max_length = 1000)
     display = models.IntegerField('表示・非表示', choices=SELECTION ,default=0) #削除の時に使用
     submit_date = models.DateTimeField('提出した日',null=True)
