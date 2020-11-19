@@ -17,6 +17,7 @@
                             <li><a href="{% url 'logout' %}" class="logout">ログアウト</a></li>
                             <li ><a href="{% url 'mysite:mypage' %}">マイページ</a></li>
                             <li ><a href="{% url 'mysite:k_t_p' %}">課題・テスト・加点登録</a></li>
+                            <li><a href="{% url 'mysite:baito_main' %}">バイト関連</a></li>
                             <li class="login-name"><a href="{% url 'mysite:mypage' %}">{{user}}</a>さんがログイン中</li>
                         {% else %}
                             <li><a href="{% url 'accounts:signup' %}" class="signup">新規登録</a></li>
@@ -32,18 +33,7 @@
         <main class="main">
             {% block content %}{% endblock %}
         </main>
-        <div class="aside">
-            <h2>Menu</h2>
-            {% if user.is_authenticated %}
-                <ul>
-                    {% if status == 0 %}
-                        <li>→<a href="{% url 'mysite:regi_mail' %}" style="text-decoration:none;">メールアドレス登録</a></li>
-                    {% else %}
-                        <li>→<a href="{% url 'mysite:update_mail' %}" style="text-decoration:none;">メールアドレス更新</a></li>
-                    {% endif %}
-                </ul>
-            {% endif %}
-        </div>
+
         <footer>
             <p class="copyright"><small>Copyright &copy; All Right Reserved by S-m-System</small></p>
             <p></p>

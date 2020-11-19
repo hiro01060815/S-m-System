@@ -25,7 +25,7 @@ SECRET_KEY = 'hx#e#k)2bb5x)zg!em6gt%ul8w&#%nq7c^$ii30!zqzma*9k6p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -129,4 +129,4 @@ EMAIL_HOST_USER = 's.m.system.info@gmail.com'
 EMAIL_HOST_PASSWORD = 'hiroyui0815'
 EMAIL_USE_TLS = True
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = "/home/SelfManagementSystem/selfmanagementsystem.pythonanywhere.com/django_app/static/css"

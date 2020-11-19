@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{%block content %}
+<h1 class="h1-title">給与計算</h1>
+
+<div class="baito-main">
+
+
+
+    <h2 class="form-name">シフト入力</h2>
+    <form  method="POST" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" name="shihuto_button">登録</button>
+    </form>
+    <p>{{ message }}</p>
+
+    <table class="baito">
+        <caption class="baito">入力結果</caption>
+        <tr>
+            <th>バイト日</th><th>労働時刻</th><th>給料</th>
+        </tr>
+        <tbody>
+            {% for baitosaki_data in baitosaki_datas %}
+            <tr>
+                <td>
+                    {{baitosaki_data.in_time.date.year}}/{{baitosaki_data.in_time.date.month}}/{{baitosaki_data.in_time.date.day}}
+                </td>
+                <td>
+                    {{baitosaki_data.in_time.time.hour}}:{{baitosaki_data.in_time.time.minute}}~{{baitosaki_data.out_time.time.hour}}:{{baitosaki_data.out_time.time.minute}}
+                </td>
+                <td>
+                    {{baitosaki_data.tmp_salary}}
+                </td>
+                {% endfor %}
+                
+
+            </tr>
+            <tr>
+                <td></td>
+                <td>今月の給料</td>
+                <td>{{ sum_salary }}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+</div>
+<div class="aside">
+    <h2>Menu</h2>
+    {% if user.is_authenticated %}
+        <ul>
+            <li><a href="{% url 'mysite:new_baito' %}" style="text-decoration:none;">新規バイト先</a></li>
+            {% for baitosaki_name in baitosaki_names %}
+                <li>baitosaki_name</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+{%endblock%}
+
+
+
+
+
