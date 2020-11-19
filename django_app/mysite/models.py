@@ -88,3 +88,24 @@ class UserTestInfo(models.Model):
     status = models.IntegerField('提出状況', choices = SELECTION)
     def __str__(self):
         return self.user.username
+
+class BaitoInfo(models.Model):
+    name = models.CharField('バイト先の名前',max_length=255)
+    base = models.IntegerField('基本給',default=0)
+    plus_evening = models.IntegerField('夕方手当',default=100)  #夕方100円プラス
+    plus_night = models.IntegerField('深夜割増',default=25)         #25%割り増し
+    plus_holiday = models.IntegerField('祝日手当',default=150)      #150円プラス
+    plus_overtime = models.IntegerField('8時間労働時の残業割増',default=25)  #25%割増
+    def __str__(self):
+        return self.name
+
+
+class BaitoTimeInfo(models.Model):
+    SELECTION = ((0,'平日'),(1,'日祝'))
+    user = models.ForeignKey(User,verbose_name='ユーザ',related_name='user5',on_delete=models.CASCADE)
+    BI = models.ForeignKey(BaitoInfo,verbose_name='バイト',related_name='user_baito_info2',on_delete=models.CASCADE)
+    in_time = models.DateTimeField('出勤時間', default=str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M')))
+    out_time = models.DateTimeField('退勤時間', default=str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M')))
+    holiday = models.IntegerField('平日or日祝', choices = SELECTION, default=0)
+    tmp_salary = models.IntegerField('一当たりの給料',default=0)
+

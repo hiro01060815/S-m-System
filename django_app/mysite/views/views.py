@@ -7,10 +7,10 @@ from mysite.views.mail import mail
 import threading
 from django.contrib.auth.decorators import login_required
 import re
+import pytz
 
 @login_required
 def index(request):
-    
     user = request.user
     if UserInfo.objects.filter(user_id = user.id).exists():
         dt_now = datetime.datetime.now()
@@ -36,6 +36,7 @@ def index(request):
                         print("z")
                         i=i+1
     kadai_datas = UserKadaiInfo.objects.filter(user_id = user.id)
+    
     if kadai_datas.filter(status = 1).exists():    #提出した日が一週間以内の課題
         dt_now = datetime.datetime.now()
         d_now = dt_now.date()
@@ -43,7 +44,7 @@ def index(request):
         submit_kadai_datas = kadai_datas.filter(KI__submit_date__range=[d_minus7, d_now])
     else:
         submit_kadai_datas = ""
-
+    
     if UserCTInfo.objects.filter(user_id = user.id).exists(): #履修中の科目の総単位を計算
         CT_datas = UserCTInfo.objects.filter(user_id = user.id)
         CT_datas = CT_datas.filter(user_CT = 1)

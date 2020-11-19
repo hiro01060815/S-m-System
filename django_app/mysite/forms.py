@@ -1,5 +1,6 @@
 from django import forms
 from .models import CoursesTaken,UserCTInfo, KadaiInfo, UserKadaiInfo, TestInfo, UserTestInfo,UserInfo
+from .models import BaitoInfo, BaitoTimeInfo
 class UserForm(forms.ModelForm):
     class Meta:
         model = CoursesTaken
@@ -57,4 +58,28 @@ class UIForm(forms.ModelForm):
         fields = ('mailaddress',)
         labels = {
             'mailaddress': 'メールアドレス'
+        }
+
+class BIForm(forms.ModelForm):
+    class Meta:
+        model = BaitoInfo
+        fields = ('name','base','plus_evening','plus_night','plus_holiday','plus_overtime')
+        labels = {
+            'name': 'バイト先',
+            'base':'基本給（円）',
+            'plus_evening':'夕方手当（円）',
+            'plus_night':'深夜割増（％）',
+            'plus_holiday':'祝日手当（円）',
+            'plus_overtime':'8時間労働時の残業割増（％）'
+        }
+
+
+class BTIForm(forms.ModelForm):
+    class Meta:
+        model = BaitoTimeInfo
+        fields = ('BI','in_time','out_time')
+        labels = {
+            'BI': 'バイト先の名前',
+            'in_time':'出勤時間',
+            'out_time':'退勤時間'            
         }

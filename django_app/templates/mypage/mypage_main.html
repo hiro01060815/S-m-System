@@ -824,6 +824,17 @@
 
     </table>
 </div>
-
+<div class="aside">
+    <h2>Menu</h2>
+    {% if user.is_authenticated %}
+        <ul>
+            {% if status == 0 %}
+                <li>→<a href="{% url 'mysite:regi_mail' %}" style="text-decoration:none;">メールアドレス登録</a></li>
+            {% else %}
+                <li>→<a href="{% url 'mysite:update_mail' %}" style="text-decoration:none;">メールアドレス更新</a></li>
+            {% endif %}
+        </ul>
+    {% endif %}
+</div>
 
 {%endblock%}

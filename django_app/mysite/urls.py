@@ -1,7 +1,7 @@
 from django.urls import path
  
 from .views import views
-from .views import mypage,kadai_test_plus, mail
+from .views import mypage,kadai_test_plus, mail, baito
  
 # アプリケーションの名前空間
 # https://docs.djangoproject.com/ja/2.0/intro/tutorial03/
@@ -21,5 +21,7 @@ urlpatterns = [
     #path('k_t_p',kadai_test_plus.kadai_status_update, name = 'kadai_status_update'),
     path('regi_mail', mail.mail_touroku, name ='regi_mail'),
     path('update_mail', mail.mail_update, name = 'update_mail'),
-    path('mail_check', mail.mail_check, name = 'mail_check')
+    path('mail_check', mail.mail_check, name = 'mail_check'),
+    path('baito', baito.baito_main, name = 'baito_main'),
+    path('new_baito', baito.new_baito, name = 'new_baito')
 ]
