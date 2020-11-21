@@ -18,13 +18,13 @@ def mail(request):
     for kadai_data in kadai_datas:
         kadai_date = kadai_data.KI.date.date()
         if (kadai_date <= d_plus3 and kadai_date >= d_now):
-            message += str(kadai_data.KI.name) + "( " + "http://SelfManagementSystem.pythonanywhere.com/kadai/" + str(kadai_data.id) + " )\n"
+            message += str(kadai_data.KI.name) + "\nhttp://SelfManagementSystem.pythonanywhere.com/kadai/" + str(kadai_data.id) + "\n\n"
 
     """題名"""
     subject = "期限が間近の課題、テストがあります。"
     """本文"""
     print(message)
-    message = "aaaaaaaaaaaa期限が3日以内の課題があります。確認してください。\n" + message +"\n\n\nhttp://SelfManagementSystem.pythonanywhere.com/"
+    message = "さん、こんにちは。\n期限が3日以内の課題があります。確認してください。\n\n" + message +"\n\n\n当サイトURL↓↓↓↓\nhttp://SelfManagementSystem.pythonanywhere.com/"
     """送信元メールアドレス"""
     from_email = "s.m.system.info@gmail.com"
     """宛先メールアドレス"""
