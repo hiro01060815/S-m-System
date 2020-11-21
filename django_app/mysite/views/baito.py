@@ -16,6 +16,9 @@ def baito_main(request):
     user = request.user
     form = BTIForm()
     message = ""
+    baitosaki_datas = ""
+    salary = 0
+    sum_salary = 0
     if request.method == 'POST':
         form = BTIForm(request.POST)
         if form.is_valid():
@@ -75,7 +78,7 @@ def baito_main(request):
 
             jitsudou_salary = baitosaki_data.BI.base
             yuu_salary      = baitosaki_data.BI.plus_evening
-            a22_salary      = ( 1.0 + baitosaki_data.BI.plus_night / 100) * baitosaki_data.BI.base
+            a22_salary      = ( baitosaki_data.BI.plus_night / 100) * baitosaki_data.BI.base
             sun_salary      = baitosaki_data.BI.plus_holiday
             zan_salary      = baitosaki_data.BI.plus_overtime
 
@@ -181,7 +184,18 @@ def baito_main(request):
         sum_salary = math.ceil(sum_jitsudou_salary) + math.ceil(sum_yuu_salary) + math.ceil(sum_22_salary) + math.ceil(sum_sun_salary) + math.ceil(sum_zan_salary) 
         #print(baitosaki_datas.values())
         #print(salary)
-
+        """
+        sum_jitsudou : 実働時間合計
+        sum_yuu      : 夕方の合計
+        sum_22       : 深夜10時以降の合計
+        sum_sun      : 祝日の合計
+        sum_zan      : 8時間以上労働時の残業時間合計
+        """
+        print("実働時間"+str(sum_jitsudou_hour)+"時間"+str(sum_jitsudou_minute)+"分"+"  "+str(sum_jitsudou_salary))
+        print("夕方"+str(sum_yuu_hour)+"時間"+str(sum_yuu_minute)+"分"+"  "+str(sum_yuu_salary))
+        print("深夜"+str(sum_22_hour)+"時間"+str(sum_22_minute)+"分"+"  "+str(sum_22_salary))
+        print("祝日"+str(sum_sun_hour)+"時間"+str(sum_sun_minute)+"分"+"  "+str(sum_sun_salary))
+        print("残業"+str(sum_zan_hour)+"時間"+str(sum_zan_minute)+"分"+"  "+str(sum_zan_salary))    
     params ={
         'message':message,
         'form': form,
