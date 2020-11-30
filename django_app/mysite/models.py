@@ -108,4 +108,5 @@ class BaitoTimeInfo(models.Model):
     out_time = models.DateTimeField('退勤時間', default=str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M')))
     holiday = models.IntegerField('平日or日祝', choices = SELECTION, default=0)
     tmp_salary = models.IntegerField('一当たりの給料',default=0)
-
+    def __str__(self):
+        return str(self.in_time)
