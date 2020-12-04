@@ -25,7 +25,7 @@ caption{
     color: black;
     font-size: 40pt;
     padding-top:15px;
-    margin-left:0px;
+    margin-left:220px;
 }
 
 .aside-right{
@@ -93,13 +93,14 @@ li.login-name{
 .copyright{
     text-align:center;
 }
-
+/*
 .main{
     box-sizing: border-box;
     margin-left: 220px;
     margin-right: 220px;
     padding: 20px 40px;
 }
+*/
 .aside{
     box-sizing: border-box;
     top: 200px;
